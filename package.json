@@ -1,27 +1,46 @@
 {
   "name": "astralyx-tg-bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert Telegram tdata, .session files, and session strings (GramJS/Telethon/Pyrogram) into one readable JSON object — and back out to a Telethon .session or a GramJS/Telethon session string. Pure Node, zero dependencies, offline.",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "bin": { "tg-bridge": "./dist/cli.js" },
-  "files": ["dist"],
+  "bin": {
+    "tg-bridge": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/astralyxdev/tg-bridge.git"
   },
   "homepage": "https://github.com/astralyxdev/tg-bridge#readme",
-  "bugs": { "url": "https://github.com/astralyxdev/tg-bridge/issues" },
-  "keywords": ["telegram", "tdata", "session", "telethon", "gramjs", "pyrogram", "mtproto", "auth-key"],
-  "publishConfig": { "access": "public" },
+  "bugs": {
+    "url": "https://github.com/astralyxdev/tg-bridge/issues"
+  },
+  "keywords": [
+    "telegram",
+    "tdata",
+    "session",
+    "telethon",
+    "gramjs",
+    "pyrogram",
+    "mtproto",
+    "auth-key"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && npm run build",
     "release": "npm version patch -m \"chore(release): v%s\" && git push --follow-tags"
   },
-  "engines": { "node": ">=22.5" },
+  "engines": {
+    "node": ">=22.5"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^22.10.0",
