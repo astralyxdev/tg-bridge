@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # tsc is the check: it type-checks the whole library and emits dist/.
+      # A break here is a release break, since dist/ is the published artefact.
+      - run: npm run build
+      # The runnable examples import the built entry; type-checking them keeps
+      # the public API and the examples from drifting apart.
+      - name: Examples type-check against the built API
+        run: npx tsc --noEmit --module nodenext --moduleResolution nodenext --strict --skipLibCheck examples/*.mts
