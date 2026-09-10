@@ -1,5 +1,5 @@
 /**
- * @astralyx/tg-bridge
+ * astralyx-tg-bridge
  *
  * Bring any Telegram account — from a `.session` file or a `tdata` folder — into
  * one standard JSON object (auth key + props). Pure Node, zero dependencies, no

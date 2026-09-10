@@ -1,4 +1,6 @@
-# @astralyx/tg-bridge
+# astralyx-tg-bridge
+
+[![npm](https://img.shields.io/npm/v/astralyx-tg-bridge)](https://www.npmjs.com/package/astralyx-tg-bridge)
 
 Convert Telegram credentials between the formats different libraries use, through
 **one readable JSON object** as the hub. Read a Telegram Desktop `tdata` folder, a
@@ -18,6 +20,26 @@ any supported form can be rebuilt.
   tdata         ─┐                               ┌─► account.json (standard object)
   .session       ┼─►  RawCredential  ─► normalize ┼─► session string (GramJS/Telethon)
   session string ┘   (authKey + dc + uid)         └─► .session (Telethon, rebuilt)
+```
+
+## Installation
+
+```bash
+npm install astralyx-tg-bridge
+```
+
+Requires Node ≥ 22.5 (uses the built-in `node:sqlite`); no other dependencies.
+
+```ts
+import { extractAccount } from 'astralyx-tg-bridge';
+// or:  const { extractAccount } = require('astralyx-tg-bridge');
+```
+
+The CLI ships with the package as `tg-bridge`:
+
+```bash
+npx astralyx-tg-bridge extract --type tdata --path ./account/tdata
+# or install globally:  npm i -g astralyx-tg-bridge  →  tg-bridge extract …
 ```
 
 ## The standard object
@@ -47,7 +69,7 @@ Everything else is metadata carried along for convenience.
 ## Library API
 
 ```ts
-import { extractAccount, writeStandard, decodeStringSession } from '@astralyx/tg-bridge';
+import { extractAccount, writeStandard, decodeStringSession } from 'astralyx-tg-bridge';
 
 // Extract — synchronous, returns the final object
 const acc  = extractAccount({ type: 'tdata',   path: '/path/to/tdata' });

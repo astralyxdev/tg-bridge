@@ -4,7 +4,7 @@
  * Run (after `npm run build`):
  *   node examples/extract-tdata.mts [tdataPath] [localPasscode]
  *
- * In a real project:  import { extractAccount } from '@astralyx/tg-bridge';
+ * In a real project:  import { extractAccount } from 'astralyx-tg-bridge';
  */
 import * as path from 'node:path';
 import { extractAccount, writeStandard } from '../dist/index.js';
